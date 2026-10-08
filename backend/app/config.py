@@ -3,14 +3,17 @@ from pathlib import Path
 
 # Paths
 BASE_DIR = Path(__file__).resolve().parent.parent
-DB_PATH = os.environ.get("DB_PATH", str(BASE_DIR / "financial_engine.db"))
 
-DEFAULT_DATASET_DIR = Path("C:/Users/HP/Downloads/Hackathon/Dataset")
-if not DEFAULT_DATASET_DIR.exists():
-    # Fallback to local Dataset directory if copied into backend or repo
-    DEFAULT_DATASET_DIR = BASE_DIR.parent / "Dataset"
+DB_PATH = os.environ.get(
+    "DB_PATH",
+    str(BASE_DIR / "financial_engine.db")
+)
 
-DATASET_DIR = Path(os.environ.get("DATASET_DIR", str(DEFAULT_DATASET_DIR)))
+DEFAULT_DATASET_DIR = BASE_DIR.parent / "Dataset"
+
+DATASET_DIR = Path(
+    os.environ.get("DATASET_DIR", str(DEFAULT_DATASET_DIR))
+)
 
 # AI Configuration
 GEMINI_API_KEY = os.environ.get("GEMINI_API_KEY", "")
